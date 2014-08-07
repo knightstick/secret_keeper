@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  get 'secrets/new'
+
+  get 'sessions/new'
+  get 'logout' => 'sessions#destroy'
+
+  get 'users/new'
+  root 'sessions#new'
+  resources :users, :sessions, :secrets
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
